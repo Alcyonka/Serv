@@ -1,0 +1,124 @@
+
+C:\WINDOWS\system32>docker search postgres
+NAME                                        DESCRIPTION                                     STARS     OFFICIAL
+postgres                                    The PostgreSQL object-relational database sy…   13174     [OK]
+bitnami/postgresql                          Bitnami PostgreSQL Docker Image                 263
+cimg/postgres                                                                               2
+bitnami/postgres-exporter                                                                   13
+bitnami/postgresql-repmgr                                                                   23
+ubuntu/postgres                             PostgreSQL is an open source object-relation…   35
+rapidfort/postgresql                        RapidFort optimized, hardened image for Post…   22
+bitnamicharts/postgresql                                                                    3
+rapidfort/postgresql-official               RapidFort optimized, hardened image for Post…   12
+rapidfort/postgresql12-ib                   RapidFort optimized, hardened image for Post…   11
+elestio/postgres                            Postgres, verified and packaged by Elestio      0
+pachyderm/postgresql                                                                        0
+bitnamicharts/postgresql-ha                                                                 1
+kasmweb/postgres                            Postgres image maintained by Kasm Technologi…   1
+bitnami/postgrest                                                                           2
+hashicorp/postgres-nomad-demo               Used in Nomad-Vault integration guide           0
+objectscale/postgresql-repmgr                                                               0
+wodby/postgres                              Alpine-based PostgreSQL container image with…   0
+dockette/postgres                           My PostgreSQL image with tunning and preinst…   1
+airbyte/postgres-singer-source-abprotocol                                                   0
+clearlinux/postgres                         PostgreSQL object-relational database system…   2
+drud/postgres                                                                               0
+artifacthub/postgres                                                                        0
+corpusops/postgres                          https://github.com/corpusops/docker-images/     0
+ckan/postgresql                             **NOTE**: These images are deprecated and no…   8
+
+C:\WINDOWS\system32>docker pull postgres
+Using default tag: latest
+latest: Pulling from library/postgres
+e1caac4eb9d2: Pull complete
+7a2930f13d47: Pull complete
+a6c49e965138: Pull complete
+ed8dc94f857d: Pull complete
+1f07b4807698: Pull complete
+a776288d4030: Pull complete
+7cbb4adb3448: Pull complete
+b6dbd7317d5f: Pull complete
+52814b5dc710: Pull complete
+b68697689b55: Pull complete
+6d80681e3923: Pull complete
+4270a9f40aee: Pull complete
+d28fa0286314: Pull complete
+cb1ee5bc271e: Pull complete
+Digest: sha256:f58300ac8d393b2e3b09d36ea12d7d24ee9440440e421472a300e929ddb63460
+Status: Downloaded newer image for postgres:latest
+docker.io/library/postgres:latest
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview postgres
+
+C:\WINDOWS\system32>docker run --name doc_postgres -e POSTGRES_PASSWORD=mypassword -d postgres
+0f47bd31a20b9b037f4dc5973d74f6c748fabbdaaed8a555d3d390613dfa8a93
+
+C:\WINDOWS\system32>docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS         PORTS      NAMES
+0f47bd31a20b   postgres   "docker-entrypoint.s…"   6 seconds ago   Up 4 seconds   5432/tcp   doc_postgres
+
+C:\WINDOWS\system32>docker exec -it doc_postgres psql -U postgres
+psql (16.2 (Debian 16.2-1.pgdg120+2))
+Type "help" for help.
+
+postgres=# CREATE TABLE tasks (
+postgres(# id SERIAL PRIMARY KEY,
+postgres(# title VARCHAR(65) NOT NULL,
+postgres(# dateStart DATE NOT NULL,
+postgres(# dateMustEnd DATE NOT NULL,
+postgres(# executorID INTEGER NOT NULL,
+postgres(# FOREIGN KEY (executorID) REFERENCES executors (Id)
+postgres(# );
+ERROR:  relation "executors" does not exist
+postgres=# CREATE TABLE executors (
+postgres(# id SERIAL PRIMARY KEY,
+postgres(# firstName VARCHAR(45) NOT NULL,
+postgres(# lastName VARCHAR(45) NOT NULL,
+postgres(# role VARCHAR(45) NOT NULL
+postgres(# );
+CREATE TABLE
+postgres=# CREATE TABLE tasks (
+postgres(# id SERIAL PRIMARY KEY,
+postgres(# title VARCHAR(65) NOT NULL,
+postgres(# dateStart DATE NOT NULL,
+postgres(# dateMustEnd DATE NOT NULL,
+postgres(# executorID INTEGER NOT NULL,
+postgres(# FOREIGN KEY (executorID) REFERENCES executors (Id)
+postgres(# );
+CREATE TABLE
+postgres=# INSERT INTO executors (firstName, lastName, role) VALUES ('Вася', 'Пупкин', 'уборщик');
+INSERT 0 1
+postgres=# INSERT INTO executors (firstName, lastName, role) VALUES ('Миша', 'Тютькин', 'бухгалтер');
+INSERT 0 1
+postgres=#
+postgres=# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Убрать кабинет Тютькина', '26/02/2024', '27/02/2024', 1)
+postgres-# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Сделать расчет премий', '26/02/2024', '29/03/2024', 2);
+ERROR:  syntax error at or near "INSERT"
+LINE 2: INSERT INTO tasks (title, dateStart, dateMustEnd, executorID...
+        ^
+postgres=# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Убрать кабинет Тютькина', '26/02/2024', '27/02/2024', 1);
+ERROR:  date/time field value out of range: "26/02/2024"
+LINE 1: ...d, executorID) VALUES ('Убрать кабинет Тютькина', '26/02/202...
+                                                             ^
+HINT:  Perhaps you need a different "datestyle" setting.
+postgres=# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Убрать кабинет Тютькина', '26.022024',C:\WINDOWS\system32>docker exec -it doc_postgres psql -U postgres
+psql (16.2 (Debian 16.2-1.pgdg120+2))
+Type "help" for help.
+
+postgres=# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Убрать кабинет Тютькина', '26/03/2024', '27/03/2024', 1);
+ERROR:  date/time field value out of range: "26/03/2024"
+LINE 1: ...d, executorID) VALUES ('Убрать кабинет Тютькина', '26/03/202...
+                                                             ^
+HINT:  Perhaps you need a different "datestyle" setting.
+postgres=# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Убрать кабинет Тютькина', '26.03.2024', '27.03.2024', 1);
+ERROR:  date/time field value out of range: "26.03.2024"
+LINE 1: ...d, executorID) VALUES ('Убрать кабинет Тютькина', '26.03.202...
+                                                             ^
+HINT:  Perhaps you need a different "datestyle" setting.
+postgres=# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Убрать кабинет Тютькина', '2024-03-26', '2024-03-27', 1);
+INSERT 0 1
+postgres=# INSERT INTO tasks (title, dateStart, dateMustEnd, executorID) VALUES ('Сделать расчет премий', '2024-02-06',
+'2024-03-29', 2);
+INSERT 0 1
+postgres=#
