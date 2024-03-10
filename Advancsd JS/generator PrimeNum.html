@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+
+function isPrime(num) {
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+        function* Prime() {
+            let num = 2;
+            
+            while (true) {
+                if (isPrime(num)) yield num;
+                num++;
+            }
+        }
+        const PrimeNum = Prime();
+        console.log(PrimeNum.next().value);    
+        console.log(PrimeNum.next().value);     
+        console.log(PrimeNum.next().value);     
+        console.log(PrimeNum.next().value);    
+        console.log(PrimeNum.next().value); 
+        console.log(PrimeNum.next().value);   
+        console.log(PrimeNum.next().value);   
+
+    </script>
+
+<p>Написать функцию-генератор, выдающую простые числа</p>
+    
+
+</body>
+</html>
