@@ -1,5 +1,0 @@
-@for $n from 1 through 100{
-  .numer#{$n}{
-    color: rgb($n, 256-$n, 0);
-  }
-}

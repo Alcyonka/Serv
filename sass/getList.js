@@ -1,4 +1,3 @@
-// JavaScript source code
 function buildList() {
     var newList = document.createElement("ul");
     var newListItem;
