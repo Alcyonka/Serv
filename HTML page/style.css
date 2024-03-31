@@ -1,0 +1,204 @@
+﻿html {
+    font-family: arial;
+}
+
+body {
+    margin: 0;
+}
+
+article {
+    padding: 10px;
+}
+
+.anonim {
+    font-size: 24px;
+}
+
+.center {
+}
+
+.about {
+    width: 75px;
+    height: 40px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+    .about:hover {
+        background-color: #ff5;
+    }
+
+    .about:focus {
+        background-color: rgb(232, 232, 9);
+    }
+
+    .about:active {
+        background-color: rgb(225, 173, 30);
+    }
+
+section {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    align-items: flex-start;
+}
+
+    section article {
+        margin-left: 40px;
+        width: inherit;
+    }
+
+.firstA {
+    display: flex;
+    flex-direction: row;
+	gap: 10px;		  
+}
+
+
+    .firstA div:first-child {
+        order: 1;
+        flex-basis: 50px
+    }
+
+    .firstA div:nth-of-type(2) {
+        order: 2;
+        flex-basis: 730px
+    }
+
+    .firstA div:last-child {
+        order: 3;
+    }
+
+.SecA {
+    display: flex;
+    row-gap: 15px;
+    flex-direction: column;
+}
+
+    .SecA > div:first-child {
+        font-size: 32px;
+        font-style: italic;
+    }
+
+.teen {
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .teen > div:first-child {
+        align-self: self-end;
+    }
+
+    .teen > .miniTable {
+        display: flex;
+        width: 230px;
+        flex: 50px;
+        justify-content: space-around;
+        align-items: center;
+        /*  border: 1px solid #000;
+                border-radius:5px;*/
+    }
+
+    .teen > div:nth-of-type(3) {
+        display: flex;
+        width: 230px;
+        justify-content: space-around;
+        align-items: center;
+        flex: 30px;
+    }
+
+.miniTable > div {
+    width: 115px;
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid #000;
+}
+
+    .miniTable > div:first-child {
+        background-color: #f9d334;
+        border-right: none;
+        border-radius: 5px 0px 0px 5px;
+        color: red;
+    }
+
+    .miniTable > div:nth-of-type(2) {
+        border-radius: 0px 5px 5px 0px;
+    }
+
+
+
+.flex-outer {
+    display: flex;
+    row-gap: 22px;
+    flex-direction: column;
+}
+
+    .flex-outer > div, .textCheck {
+        display: flex;
+        align-items: center;
+    }
+
+        .flex-outer > div > .labelPlateField {
+            width: 150px;
+        }
+
+        .flex-outer > div > .plateField {
+            height: 40px;
+            width: 255px;
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+
+#first-name, #last-name {
+    width: 410px;
+}
+
+#BirthDate {
+    padding: 0 0 0 10px;
+    font-size: 14px;
+}
+
+#but {
+    height: 50px;
+    width: 230px;
+    font-size: 20px;
+    background-color: #eca821;
+    border: none;
+    border-radius: 5px;
+}
+
+    #but:hover {
+        background-color: #f9de73;
+    }
+
+    #but:focus {
+        background-color: #ffd001;
+    }
+
+    #but:active {
+        background-color: #fb9612;
+    }
+
+.microText {
+    font-size: 12px;
+}
+
+.middleText {
+    font-size: 15px;
+}
+
+.yellow {
+    color: #f9d334;
+}
+
+.grey {
+    color: #999;
+}
+
+.check {
+    margin-left: 0;
+}

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Flexbox 0 — starting code</title>
+    <link rel="stylesheet" href="css_main.css" />
+    <link rel="stylesheet" media="screen and (min-width: 980px)" href="minwidth980.css" />
+    <link rel="stylesheet" media="screen and (min-width: 700px) and (max-width: 980px)" href="min700max980.css" />
+    <link rel="stylesheet" media="screen and (min-width: 500px) and (max-width: 700px)" href="min500max700.css" />
+    <link rel="stylesheet" media="screen and (max-width: 500px)" href="max500.css" />
+    <style>
+    </style>
+</head>
+<body>
+    <section>
+        <article class="firstA">
+            <div><img src="img/figovina.png" /></div>
+            <div><div class="anonim">Анонимный</div><div class="center">учебный центр</div></div>
+            <div><button class="about">О нас</button></div>
+        </article>
+        <article class="SecA">
+            <div>Регистрация на мероприятие</div>
+            <div>Выберите день и время:</div>
+
+            <div class="teen">
+                <div><img src="img/teenager.png"></div>
+                <div class="miniTable"><div>Вс 10:00</div><div>Вс 13:00</div></div>
+                <div class="grey"><div>75 мест</div><div>75 мест</div></div>
+            </div>
+
+        </article>
+        <article>
+            <h2>Мастер-класс 12 июня</h2>
+            <form class="forma" action="" method="post">
+
+                <div class="flex-outer">
+                    <div>
+                        <label class="labelPlateField" for="first-name">Фамилия</label>
+                        <input class="plateField" type="text" id="first-name">
+                    </div>
+                    <div>
+                        <label class="labelPlateField" for="last-name">Имя</label>
+                        <input class="plateField" type="text" id="last-name">
+                    </div>
+                    <div>
+                        <label class="labelPlateField" for="phone">Телефон</label>
+                        <input class="plateField" type="tel" id="phone" pattern="^\+[0-9]{11}$">
+                    </div>
+                    <div>
+                        <label class="labelPlateField" for="email">Эл. почта</label>
+                        <input class="plateField" type="email" id="email" pattern=".+@example\.com">
+                    </div>
+                    <div>
+                        <label class="labelPlateField" for="BirthDate">Дата рождения</label>
+                        <input class="plateField" type="date" id="BirthDate" class="grey">
+                    </div>
+                    <div class="textCheck"><input class="check" name="first" type="checkbox" value="first" /><label class="middleText">Я буду здесь впервые</label></div>
+                    <div class="microText grey">поставьте галочку, если вы еще никогда не были в нашей церкви</div>
+                    <div class="textCheck"><input class="check" name="accept" type="checkbox" value="accept" /><label><span class="microText">Я выражаю согласие с <span class="yellow">условиями</span></span></label></div>
+                    <div class="middleText grey">Заполните фамилию, имя, телефон, дату рождения и согласие на обработку персональных данных</div>
+                    <div><input id="but" type="submit" value="Зарегистрироваться" /></div>
+                    <div class="microText grey">Анонимный учебный центр ОГРН 1037739249569, зарегистрированный в Минюсте РФ, бланк № 76 08941, учетный № 7711010455, дата выдачи 27.12.2010г.</div>
+                    <div class="microText yellow">"Политика в отношении обработки персональных данных"</div>
+                </div>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

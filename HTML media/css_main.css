@@ -1,0 +1,52 @@
+﻿
+    html
+
+{
+    font-family: arial;
+}
+
+body {
+    margin: 0;
+}
+
+article {
+    padding: 10px;
+}
+
+
+    .about:hover {
+        background-color: #ff5;
+    }
+
+    .about:focus {
+        background-color: rgb(232, 232, 9);
+    }
+
+    .about:active {
+        background-color: rgb(225, 173, 30);
+    }
+
+
+    #but:hover {
+        background-color: #f9de73;
+    }
+
+    #but:focus {
+        background-color: #ffd001;
+    }
+
+    #but:active {
+        background-color: #fb9612;
+    }
+
+.yellow {
+    color: #f9d334;
+}
+
+.grey {
+    color: #999;
+}
+
+.check {
+    margin-left: 0;
+}
